@@ -1,0 +1,5 @@
+<div class="row">
+  <ul>
+    <li ng-repeat="item in ctrl.items">{{ item.name }} <button ng-click="ctrl.removeItem($index);" class="btn btn-default">Don't want this one!</button></li>
+  </ul>
+</div>
