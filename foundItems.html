@@ -1,5 +1,6 @@
 <div class="row">
   <ul>
-    <li ng-repeat="item in ctrl.items">{{ item.name }} <button ng-click="ctrl.removeItem($index);" class="btn btn-default">Don't want this one!</button></li>
+    <li ng-repeat="item in ctrl.items"><b>Name:</b> {{ item.name }}, <b>Short name: </b> {{ item.short_name }}, <b>Description: </b>{{ item.description }},  <button ng-click="ctrl.onRemove({index: $index});" class="btn btn-default">Don't want this one!</button></li>
   </ul>
 </div>
+<span ng-if="ctrl.nothingFound()"><h3>Nothing found</h3></span>

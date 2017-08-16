@@ -25,8 +25,12 @@ function foundItemsDirective() {
 function foundItemsDirectiveController() {
   var vm = this;
 
-  vm.removeItem = function(index) {
-    vm.items.splice(index, 1);
+  vm.nothingFound = function() {
+    if(vm.items.length === 0) {
+        return true;
+    }
+
+    return false;
   }
 }
 
@@ -39,6 +43,7 @@ function NarrowItDownController(MenuSearchService) {
 
   vm.searchMenu = function() {
     if(vm.name === '') {
+      vm.items = [];
       return;
     }
     var promise = MenuSearchService.getMatchedMenuItems(vm.name);
@@ -48,6 +53,9 @@ function NarrowItDownController(MenuSearchService) {
     });
   }
 
+  vm.removeItem = function(index) {
+    vm.items.splice(index, 1);
+  }
 }
 
 
